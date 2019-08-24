@@ -1,4 +1,4 @@
-,Movie_Title,Plot_Keywords,Language,Country,Year,Genres,Duration_minutes,Director_Name,IMDB_Score,IMDB_Link,Actor_1,Actor_2,Actor_3,Film_Budget,Gross_Income
+,movie_title,plot_keywords,language,country,year,genres,duration_minutes,director_name,imdb_score,imdb_link,actor_1,actor_2,actor_3,film_budget,gross_income
 0,Avatar ,"['avatar', 'future', 'marine', 'native', 'paraplegic']",English,USA,2009,"['Action', 'Adventure', 'Fantasy', 'Sci-Fi']",178.0,James Cameron,7.9,http://www.imdb.com/title/tt0499549/?ref_=fn_tt_tt_1,CCH Pounder,Joel David Moore,Wes Studi,237000000.0,760505847.0
 1,Pirates of the Caribbean: At World's End ,"['goddess', 'marriage ceremony', 'marriage proposal', 'pirate', 'singapore']",English,USA,2007,"['Action', 'Adventure', 'Fantasy']",169.0,Gore Verbinski,7.1,http://www.imdb.com/title/tt0449088/?ref_=fn_tt_tt_1,Johnny Depp,Orlando Bloom,Jack Davenport,300000000.0,309404152.0
 2,Spectre ,"['bomb', 'espionage', 'sequel', 'spy', 'terrorist']",English,UK,2015,"['Action', 'Adventure', 'Thriller']",148.0,Sam Mendes,6.8,http://www.imdb.com/title/tt2379713/?ref_=fn_tt_tt_1,Christoph Waltz,Rory Kinnear,Stephanie Sigman,245000000.0,200074175.0
