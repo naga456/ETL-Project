@@ -58,3 +58,43 @@ SELECT * FROM imdb_films;
 SELECT * FROM vgchartz_video_games;
 SELECT * FROM video_game_to_film;
 SELECT * FROM film_to_video_game;
+
+--Custom query for ETL report
+--First create the tables to house the keywords
+CREATE TABLE video_game_unnested (
+	video_game_name VARCHAR(1023),
+	keyword VARCHAR(1023)
+);
+
+CREATE TABLE imdb_films_unnested (
+	movie_title VARCHAR(1023),
+	keyword VARCHAR(1023)
+);
+
+--Unnest the films and movies key words
+INSERT INTO imdb_films_unnested (movie_title, keyword)
+SELECT f.movie_title, UNNEST(f.plot_keywords)
+FROM imdb_films as f;
+
+INSERT INTO video_game_unnested (video_game_name, keyword)
+SELECT v.video_game_name, UNNEST(v.key_words)
+FROM vgchartz_video_games as v;
+
+--Preview the unnested keyword tables
+SELECT * FROM imdb_films_unnested;
+SELECT * FROM video_game_unnested;
+
+--join the 2 unnested key word tables on keyword to match
+--movie and video game titles, --create table to house results
+CREATE TABLE keyword_combined (
+	movie_title VARCHAR(1023),
+	keyword VARCHAR(1023),
+	video_game_name VARCHAR(1023)
+);
+
+INSERT INTO keyword_combined (movie_title, keyword, video_game_name)
+SELECT DISTINCT f.movie_title, f.keyword, v.video_game_name
+FROM imdb_films_unnested AS f
+INNER JOIN video_game_unnested AS v ON f.keyword=v.keyword
+WHERE  LENGTH(f.keyword) > 2
+ORDER BY f.movie_title ASC;
